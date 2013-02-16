@@ -1,5 +1,5 @@
 class TymlMailer < ActionMailer::Base
-  default from: "tyml@tyml.co"
+  default from: "\"TYML\" <tyml@tyml.it>"
 
   def notification(tyml)
     @tyml = tyml

@@ -55,7 +55,7 @@ TYML::Application.configure do
     :port               => 587,
     :domain             => 'gmail.com', #you can also use google.com
     :authentication     => :plain,
-    :user_name          => 'npostolovski@gmail.com',
-    :password           => 'gtveuwaoyahuyqdo'
+    :user_name          => 'tyml.app@gmail.com',
+    :password           => 'haztpyksgreuzbom'
   }
 end
