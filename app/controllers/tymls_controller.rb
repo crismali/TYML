@@ -54,7 +54,9 @@ class TymlsController < ApplicationController
     @tyml.url = params[:tyml][:url]
     @tyml.note = params[:tyml][:note]
     @tyml.sender_id = params[:tyml][:sender_id]
-    @tyml.receiver_id = User.find_by_email(params[:tyml][:receiver_id]).id
+    @tyml.receiver_id = User.find_by_email(params[:tyml][:receiver_id]).id unless User.find_by_email(params[:tyml][:receiver_id]).nil?
+
+
 
     respond_to do |format|
       if @tyml.save
@@ -62,7 +64,7 @@ class TymlsController < ApplicationController
         format.html { redirect_to @tyml, notice: 'Tyml was successfully created.' }
         format.json { render json: @tyml, status: :created, location: @tyml }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to dashboard_url }
         format.json { render json: @tyml.errors, status: :unprocessable_entity }
       end
     end
