@@ -4,6 +4,15 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy, :dashboard]
 
+  def sent
+    @current_user = current_user
+  end
+
+  def received
+    @current_user = current_user
+  end
+
+
   def index
     @users = User.all
 
