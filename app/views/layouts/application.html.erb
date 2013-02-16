@@ -12,7 +12,6 @@
 <%= link_to "TYMLs", tymls_url %>
 <%= (link_to "| Sign-out", destroy_user_session_path, :method => 'delete') if user_signed_in? %>
 
-<p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <%= yield %>
