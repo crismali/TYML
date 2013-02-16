@@ -12,6 +12,19 @@
  *= require_tree .
  */
 
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.header {
+
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .profile_pic {
   border-radius: 50%;
 }
