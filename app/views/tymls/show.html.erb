@@ -1,29 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<h1 class="logo-send">
+    <%= link_to "TYML", tymls_url %>
+  <h1>
+<h2 class="tagline-send">
+  <strong>Congratulations on sending your first TYML!</strong>
+</h2>
 
-<p>
-  <b>Sender:</b>
-  <%= @tyml.sender.name %>
-</p>
+<h3>
+  Don't stop now! <%= link_to 'Share more content', tymls_path %>.
+</h3>
 
-<p>
-  <b>Receiver:</b>
-  <%= @tyml.receiver.name %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @tyml.url %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @tyml.note %>
-</p>
-
-<p>
-  <b>Viewed:</b>
-  <%= @tyml.viewed %>
-</p>
-
-
-<%= link_to 'Back', tymls_path %>
+</div>

@@ -1,4 +1,10 @@
 <%= form_for @tyml do |f| %>
+  <h1 class="logo-send">
+    <%= link_to "TYML", tymls_url %>
+  <h1>
+  <h2 class="tagline-send">
+    The best way to share content<br />with the people you care about.
+  </h2>
   <div class="note-form">
     <h3>Thought you might like&hellip;</h3>
     <%= f.hidden_field :sender_id, :value => @current_user.id %>
