@@ -1,9 +1,10 @@
 <%= form_for(@tyml) do |f| %>
   <% if @tyml.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tyml.errors.count, "error") %> prohibited this tyml from being saved:</h2>
+      <h2><%= pluralize(@tyml.errors.count, "error") %> Something broke!</h2>
 
       <ul>
+
       <% @tyml.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
