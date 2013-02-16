@@ -42,7 +42,7 @@
   <% @user.sent_tymls.each do |tyml| %>
   <ul>
     <li><%=  tyml.receiver.name %></li>
-    <li><%=  link_to tyml.url, tyml_url(tyml) %></li>
+    <li><%=  link_to tyml.url, tyml_url(tyml, :url => tyml.url), :target => '_blank' %></li>
     <li><%=  tyml.note %></li>
     <li>Viewed: <%=  tyml.viewed %></li>
   </ul>
