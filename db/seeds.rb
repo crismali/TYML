@@ -13,15 +13,20 @@ users = [
 User.create users
 
 notes = [ "one kind of note", "different note", "yet another note", "even more notes"]
-urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen']
-
+urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/']
 
 100.times do
   tyml = Tyml.new
   tyml.note = notes[rand(4)]
-  tyml.url = urls[rand(5)]
+  tyml.url = urls[rand(6)]
   tyml.sender_id = User.offset(rand(6)).first.id
   tyml.receiver_id = User.offset(rand(6)).first.id
+
+  if rand(2) == 1
+    tyml.viewed = true
+  else
+    tyml.viewed = false
+  end
 
   tyml.save
 end
