@@ -3,9 +3,10 @@
     <%= f.hidden_field :sender_id, :value => @current_user.id %>
 
     <%= f.text_field :url, :placeholder => "Enter URL here" %>
-    <%= f.collection_select :receiver_id, User.all, :id, :name %>
+    <%= f.text_field :receiver_id, :placeholder => "Email" %>
     <%= f.text_area :note, :placeholder => "Note (optional)", :rows => "2" %>
     <%= f.submit %>
   </div>
 
 <% end -%>
+

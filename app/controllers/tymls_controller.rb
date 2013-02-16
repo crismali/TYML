@@ -48,7 +48,13 @@ class TymlsController < ApplicationController
   # POST /tymls
   # POST /tymls.json
   def create
-    @tyml = Tyml.new(params[:tyml])
+    @tyml = Tyml.new#(params[:tyml]) params[:tyml][:receiver_id] IS NOT a receiver_id, it's
+    # an email address that is searched for in the db via find by email method below. FIX THIS LATER
+    #temporary for first builders' weekend
+    @tyml.url = params[:tyml][:url]
+    @tyml.note = params[:tyml][:note]
+    @tyml.sender_id = params[:tyml][:sender_id]
+    @tyml.receiver_id = User.find_by_email(params[:tyml][:receiver_id]).id
 
     respond_to do |format|
       if @tyml.save
