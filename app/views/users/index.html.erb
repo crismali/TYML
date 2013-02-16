@@ -14,12 +14,11 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, user %></td>
     <td><%= user.email %></td>
-    <td><%= image_tag user.profile_pic, :width => 200, :class => "profile_pic" %></td>
+    <td><%= link_to image_tag(user.profile_pic, :width => 200, :class => "profile_pic"), user %></td>
     <td><%= user.bio %></td>
     <td><%= user.location %></td>
-    <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
