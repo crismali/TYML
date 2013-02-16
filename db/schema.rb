@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215234915) do
+ActiveRecord::Schema.define(:version => 20130216015032) do
 
   create_table "tymls", :force => true do |t|
     t.integer  "sender_id"
     t.integer  "receiver_id"
     t.string   "url"
     t.string   "note"
-    t.boolean  "viewed"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "viewed",      :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "users", :force => true do |t|
