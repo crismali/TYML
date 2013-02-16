@@ -5,11 +5,16 @@ class TymlsController < ApplicationController
   before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy, :new]
 
   def index
-    @tymls = Tyml.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tymls }
+      if user_signed_in?
+        redirect_to '/dashboard'
+      else
+      @tymls = Tyml.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @tymls }
+      end
     end
   end
 

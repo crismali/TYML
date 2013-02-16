@@ -1,6 +1,6 @@
-<%= form_for @tyml do |f| -%>
+<%= form_for @tyml do |f| %>
 
-  <%= f.hidden_field :sender_id, :value => @user.id %>
+  <%= f.hidden_field :sender_id, :value => @current_user.id %>
 
   <p><%= f.label :receiver_id, "Send to:" %>
     <%= f.collection_select :receiver_id, User.all, :id, :name %>

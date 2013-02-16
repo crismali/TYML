@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy, :dashboard]
 
   def index
     @users = User.all
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @current_user = current_user
+    @tyml = Tyml.new
   end
 
   # GET /users/1

@@ -1,5 +1,25 @@
-<%= @current_user.inspect %>
+<%= render 'tyml_form' %>
 
-<% @current_user.received_tymls.each do |tyml| %>
-	<%= tyml.url %>
-<% end %>
+<p>
+  <b>Recieved TYMLs:</b>
+  <% @current_user.received_tymls.each do |tyml| %>
+      <ul>
+    <li><%=  tyml.sender.name %></li>
+    <li><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></li>
+    <li><%=  tyml.note %></li>
+    <li>Viewed: <%=  tyml.viewed %></li>
+  </ul>
+  <% end %>
+</p>
+
+<p>
+  <b>Sent TYMLs:</b>
+  <% @current_user.sent_tymls.each do |tyml| %>
+  <ul>
+    <li><%=  tyml.receiver.name %></li>
+    <li><%=  link_to tyml.url, tyml_url(tyml, :viewed => tyml.viewed.to_s, :url => tyml.url), :method => 'put', :target => '_blank' %></li>
+    <li><%=  tyml.note %></li>
+    <li>Viewed: <%=  tyml.viewed %></li>
+  </ul>
+  <% end %>
+</p>
