@@ -11,6 +11,10 @@ TYML::Application.routes.draw do
 
   get '/dashboard', :controller => 'Users', :action => 'dashboard', :as => 'dashboard'
 
+  get '/dashboard/sent', :controller => 'Users', :action => 'sent', :as => 'sent'
+
+  get '/dashboard/received', :controller => 'Users', :action => 'received', :as => 'received'
+
   resources :tymls
 
   resources :users
