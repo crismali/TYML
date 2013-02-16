@@ -5,7 +5,7 @@
 <p>
   <b>Recieved TYMLs:</b>
   <% @current_user.received_tymls.each do |tyml| %>
-      <ul>
+  <ul>
     <li><%=  tyml.sender.name %></li>
     <li><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></li>
     <li><%=  tyml.note %></li>
