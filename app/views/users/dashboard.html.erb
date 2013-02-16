@@ -1,0 +1,5 @@
+<%= @current_user.inspect %>
+
+<% @current_user.received_tymls.each do |tyml| %>
+	<%= tyml.url %>
+<% end %>

@@ -7,14 +7,14 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    if user_signed_in?
-      redirect_to user_url(current_user)
-    else
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @users }
-      end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
     end
+  end
+
+  def dashboard
+    @current_user = current_user
   end
 
   # GET /users/1

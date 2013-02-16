@@ -9,6 +9,8 @@ TYML::Application.routes.draw do
     delete '/sign-out', :controller => 'devise/sessions', :action => 'destroy', :as => 'destroy_user_session'
   end
 
+  get '/dashboard', :controller => 'Users', :action => 'dashboard', :as => 'dashboard'
+
   resources :tymls
 
   resources :users
