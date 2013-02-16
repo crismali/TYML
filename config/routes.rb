@@ -1,11 +1,17 @@
 TYML::Application.routes.draw do
+  devise_for :users
+
   root :to => 'Tymls#index'
+
+  # SIGN-OUT
+
+  devise_scope :user do
+    delete '/sign-out', :controller => 'devise/sessions', :action => 'destroy', :as => 'destroy_user_session'
+  end
 
   resources :tymls
 
-
   resources :users
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

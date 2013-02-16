@@ -1,6 +1,9 @@
 class TymlsController < ApplicationController
   # GET /tymls
   # GET /tymls.json
+
+  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy, :new]
+
   def index
     @tymls = Tyml.all
 

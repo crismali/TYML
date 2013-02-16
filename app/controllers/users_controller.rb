@@ -1,12 +1,19 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy]
+
   def index
     @users = User.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+    if user_signed_in?
+      redirect_to user_url(current_user)
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users }
+      end
     end
   end
 
