@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sender_id: 1
+  receiver_id: 1
+  url: MyString
+  note: MyString
+  viewed: false
+
+two:
+  sender_id: 1
+  receiver_id: 1
+  url: MyString
+  note: MyString
+  viewed: false

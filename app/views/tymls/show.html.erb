@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sender:</b>
+  <%= @tyml.sender_id %>
+</p>
+
+<p>
+  <b>Receiver:</b>
+  <%= @tyml.receiver_id %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @tyml.url %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @tyml.note %>
+</p>
+
+<p>
+  <b>Viewed:</b>
+  <%= @tyml.viewed %>
+</p>
+
+
+<%= link_to 'Edit', edit_tyml_path(@tyml) %> |
+<%= link_to 'Back', tymls_path %>

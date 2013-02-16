@@ -1,0 +1,37 @@
+<%= form_for(@tyml) do |f| %>
+  <% if @tyml.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tyml.errors.count, "error") %> prohibited this tyml from being saved:</h2>
+
+      <ul>
+      <% @tyml.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sender_id %><br />
+    <%= f.number_field :sender_id %>
+  </div>
+  <div class="field">
+    <%= f.label :receiver_id %><br />
+    <%= f.number_field :receiver_id %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :viewed %><br />
+    <%= f.check_box :viewed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
