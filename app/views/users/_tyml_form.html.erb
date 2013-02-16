@@ -1,13 +1,11 @@
 <%= form_for @tyml do |f| %>
+  <div class="note-form">
+    <%= f.hidden_field :sender_id, :value => @current_user.id %>
 
-  <%= f.hidden_field :sender_id, :value => @current_user.id %>
-
-  <p><%= f.label :receiver_id, "Send to:" %>
+    <%= f.text_field :url, :placeholder => "Enter URL here" %>
     <%= f.collection_select :receiver_id, User.all, :id, :name %>
-  <%= f.label :url, "Url:" %>
-    <%= f.text_field :url %></p>
-  <p><%= f.label :note, "Note:" %>
-    <%= f.text_area :note %>
-    <%= f.submit %></p>
+    <%= f.text_area :note, :placeholder => "Note (optional)", :rows => "2" %>
+    <%= f.submit %>
+  </div>
 
 <% end -%>
