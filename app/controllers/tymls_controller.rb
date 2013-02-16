@@ -52,6 +52,7 @@ class TymlsController < ApplicationController
 
     respond_to do |format|
       if @tyml.save
+        TymlMailer.notification(@tyml).deliver
         format.html { redirect_to @tyml, notice: 'Tyml was successfully created.' }
         format.json { render json: @tyml, status: :created, location: @tyml }
       else
