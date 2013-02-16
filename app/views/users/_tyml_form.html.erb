@@ -1,0 +1,13 @@
+<%= form_for @tyml do |f| -%>
+
+  <%= f.hidden_field :sender_id, :value => @user.id %>
+
+  <p><%= f.label :receiver_id, "Send to:" %>
+    <%= f.collection_select :receiver_id, User.all, :id, :name %>
+  <%= f.label :url, "Url:" %>
+    <%= f.text_field :url %></p>
+  <p><%= f.label :note, "Note:" %>
+    <%= f.text_area :note %>
+    <%= f.submit %></p>
+
+<% end -%>

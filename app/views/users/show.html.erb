@@ -25,6 +25,8 @@
   <%= @user.location %>
 </p>
 
+<%= render 'tyml_form' %>
+
 <p>
   <b>Recieved TYMLs:</b>
   <% @user.received_tymls.each do |tyml| %>
