@@ -57,10 +57,11 @@ class TymlsController < ApplicationController
   # PUT /tymls/1.json
   def update
     @tyml = Tyml.find(params[:id])
-    @tyml.viewed = params[:viewed]
+
+    @tyml.viewed = params[:viewed] #should be made more secure/tamper proof
     respond_to do |format|
-      if @tyml.update_attributes(params[:tyml])
-        format.html { redirect_to params[:url], notice: 'Tyml was successfully updated.' }
+      if @tyml.save
+        format.html { redirect_to params[:url] }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
