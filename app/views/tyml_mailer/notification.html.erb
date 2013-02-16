@@ -1,6 +1,11 @@
+<h2>TYML</h2>
 
-<%= @tyml.sender.name %> sent you a tyml!
+<h3><%= @tyml.sender.name %> sent you a TYML!</h3>
 
-<%= @tyml.url %>
+<p>TYML is the new way to receive awesome content from people you care about. Choose how you want to be notified, and cut through the noise.</p>
 
-check out <%= link_to "tyml!", root_url %>
+<p><strong>URL:</strong> <%= @tyml.url %></p>
+
+<p><%= @tyml.note %></p>
+
+Check out: <%= link_to "TYML", "http://tyml.it" %>
