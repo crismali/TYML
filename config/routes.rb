@@ -1,4 +1,6 @@
 TYML::Application.routes.draw do
+  root :to => 'Tymls#index'
+
   resources :tymls
 
 
