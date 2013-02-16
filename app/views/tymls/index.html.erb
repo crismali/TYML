@@ -14,8 +14,8 @@
 
 <% @tymls.each do |tyml| %>
   <tr>
-    <td><%= tyml.sender_id %></td>
-    <td><%= tyml.receiver_id %></td>
+    <td><%= tyml.sender.name %></td>
+    <td><%= tyml.receiver.name %></td>
     <td><%= tyml.url %></td>
     <td><%= tyml.note %></td>
     <td><%= tyml.viewed %></td>
