@@ -55,6 +55,7 @@ class TymlsController < ApplicationController
       user = User.new
       user.email = params[:tyml][:receiver_id]
       user.save
+      @tyml.receiver_id = user.id
 
       #add user.id to the contacts based on the tyml's sender_id
     end
@@ -62,7 +63,7 @@ class TymlsController < ApplicationController
     respond_to do |format|
       if @tyml.save
         TymlMailer.notification(@tyml).deliver
-        format.html { redirect_to @tyml, notice: 'Tyml was successfully created.' }
+        format.html { redirect_to tyml_url(@tyml), notice: 'Tyml was successfully created.' }
         format.json { render json: @tyml, status: :created, location: @tyml }
       else
         format.html { redirect_to dashboard_url }
