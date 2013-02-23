@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :sent_tymls, class_name: 'Tyml', foreign_key: 'sender_id'
-  has_many :received_tymls, class_name: 'Tyml', foreign_key: 'receiver_id'
+  has_many :received_tymls, class_name: 'Tyml', foreign_key: 'receiver_email'
 
 end

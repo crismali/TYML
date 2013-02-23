@@ -10,7 +10,7 @@
     <%= f.hidden_field :sender_id, :value => @current_user.id %>
 
     <%= f.text_field :url, :placeholder => "Enter URL here" %>
-    <%= f.text_field :receiver_id, :placeholder => "Email" %>
+    <%= f.text_field :receiver_email, :placeholder => "Email" %>
     <%= f.text_area :note, :placeholder => "Note (optional)", :rows => "2" %>
     <div class="input-container">
       <%= f.submit "Share" %>

@@ -49,28 +49,11 @@ class TymlsController < ApplicationController
   # POST /tymls.json
   def create
     @tyml = Tyml.new(params[:tyml])
-    user = User.find_by_email(params[:tyml][:receiver_id])
-
-    logger.info(user.inspect)
-    logger.info(@tyml.inspect)
-
-    if user.nil?
-      user = User.new
-      user.email = params[:tyml][:receiver_id]
-      user.save
-      @tyml.receiver_id = user.id
-      logger.info(user.inspect)
-
-      #add user.id to the contacts based on the tyml's sender_id
-
-    else
-      @tyml.receiver_id = user.id
-    end
 
     respond_to do |format|
       if @tyml.save
         TymlMailer.notification(@tyml).deliver
-        format.html { redirect_to tyml_url(@tyml), notice: 'Tyml was successfully created.' }
+        format.html { redirect_to @tyml, notice: 'Tyml was successfully created.' }
         format.json { render json: @tyml, status: :created, location: @tyml }
       else
         format.html { redirect_to dashboard_url }

@@ -4,6 +4,6 @@ class TymlMailer < ActionMailer::Base
   def notification(tyml)
     @tyml = tyml
 
-    mail to: @tyml.receiver.email, subject: "New TYML from #{@tyml.sender.name}"
+    mail to: @tyml.receiver_email, subject: "New TYML from #{@tyml.sender.name}"
   end
 end
