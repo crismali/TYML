@@ -12,6 +12,14 @@ class Tyml < ActiveRecord::Base
 
   # end
 
+  validate :valid_email
+
+  def valid_email
+    unless receiver_email[/.+@.+/]
+      errors.add(:receiver_email, "must be valid")
+      logger.info(errors.inspect)
+    end
+  end
 
   attr_accessible :note, :receiver_email, :sender_id, :url, :viewed
 
