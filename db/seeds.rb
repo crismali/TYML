@@ -20,7 +20,7 @@ urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com
   tyml.note = notes[rand(4)]
   tyml.url = urls[rand(6)]
   tyml.sender_id = User.offset(rand(6)).first.id
-  tyml.receiver_id = User.offset(rand(6)).first.id
+  tyml.receiver_email = User.offset(rand(6)).first.email
 
   if rand(2) == 1
     tyml.viewed = true
