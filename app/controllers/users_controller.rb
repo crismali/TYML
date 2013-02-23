@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @current_user = current_user
+    @autocomplete_items = User.all.map { |user| user.email }
     @tyml = Tyml.new
   end
 

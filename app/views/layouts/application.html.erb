@@ -15,4 +15,11 @@
 <%= yield %>
 
 </body>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $('#auto_complete').typeahead({source: autocomplete_items});
+    });
+</script>
+
 </html>
