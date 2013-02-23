@@ -1,0 +1,10 @@
+<header class="header" role="banner">
+  <div class="container">
+    <nav>
+      <%= (link_to "TYML", dashboard_url, :class => 'logo') if user_signed_in? %>
+      <%= link_to "Received", received_url if user_signed_in? %>
+      <%= link_to "Sent", sent_url if user_signed_in? %>
+      <%= (link_to "Sign-out", destroy_user_session_path, :method => 'delete') if user_signed_in? %>
+    </nav>
+  </div>
+</header>
