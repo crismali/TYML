@@ -49,15 +49,22 @@ class TymlsController < ApplicationController
   # POST /tymls.json
   def create
     @tyml = Tyml.new(params[:tyml])
-    @tyml.receiver_id = User.find_by_email(params[:tyml][:receiver_id])
+    user = User.find_by_email(params[:tyml][:receiver_id])
 
-    if @tyml.receiver_id.nil?
+    logger.info(user.inspect)
+    logger.info(@tyml.inspect)
+
+    if user.nil?
       user = User.new
       user.email = params[:tyml][:receiver_id]
       user.save
       @tyml.receiver_id = user.id
+      logger.info(user.inspect)
 
       #add user.id to the contacts based on the tyml's sender_id
+
+    else
+      @tyml.receiver_id = user.id
     end
 
     respond_to do |format|
