@@ -1,7 +1,7 @@
 class Tyml < ActiveRecord::Base
 
   # validate :cant_send_link_more_once_per_day
-  validates_presence_of :receiver_id
+
   # def cant_send_link_more_once_per_day
   #   last_tyml = Tyml.where(:sender_id => self.sender_id, :receiver_id => self.receiver_id, :url => self.url).last
   #   unless last_tyml.nil?
@@ -13,11 +13,11 @@ class Tyml < ActiveRecord::Base
   # end
 
 
-  attr_accessible :note, :receiver_id, :sender_id, :url, :viewed
+  attr_accessible :note, :receiver_email, :sender_id, :url, :viewed
 
 
   belongs_to :sender, :class_name => 'User', :foreign_key => 'sender_id'
-  belongs_to :receiver, :class_name => 'User', :foreign_key => 'receiver_id'
+  belongs_to :receiver, :class_name => 'User', :foreign_key => 'receiver_email'
 
 
 end
