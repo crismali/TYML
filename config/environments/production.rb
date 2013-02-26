@@ -70,3 +70,5 @@ TYML::Application.configure do
 
 
   #These settings are for the sending out email for active admin and consequently the   devise mailer
+
+end
