@@ -70,16 +70,3 @@ TYML::Application.configure do
 
 
   #These settings are for the sending out email for active admin and consequently the   devise mailer
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['npostolovski'],
-    :password       => ENV['F3Rw$mjL*uAu'],
-    :domain         => 'heroku.com'
-  }
-  ActionMailer::Base.delivery_method ||= :smtp
-end
