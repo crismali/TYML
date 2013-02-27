@@ -1,7 +1,7 @@
-TYML::Application.configure do
+  TYML::Application.configure do
   
   # Default URL for Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
