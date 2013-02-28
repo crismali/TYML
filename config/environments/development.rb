@@ -1,7 +1,7 @@
   TYML::Application.configure do
-  
+
   # Default URL for Devise
-  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -48,7 +48,7 @@
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = 
+  ActionMailer::Base.smtp_settings =
   {
     :enable_starttls_auto => true,
     :address            => 'smtp.gmail.com',
