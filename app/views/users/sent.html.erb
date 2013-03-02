@@ -1,10 +1,12 @@
-
-
 <p>
   <b>Sent TYMLs:</b>
   <% @current_user.sent_tymls.each do |tyml| %>
   <ul>
-    <li><%=  tyml.receiver_email %></li>
+  	<% if tyml.receiver.nil? %>
+      <li><%=  tyml.receiver_email %></li>
+    <% else %>
+      <li><%= tyml.receiver.name %></li>
+   	<% end %>
     <li><%=  link_to tyml.url, tyml_url(tyml, :viewed => tyml.viewed.to_s, :url => tyml.url), :method => 'put', :target => '_blank' %></li>
     <li><%=  tyml.note %></li>
     <li>Viewed: <%=  tyml.viewed %></li>
