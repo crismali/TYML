@@ -46,6 +46,7 @@ $xxlarge: 960px
 @import base
 @import header
 @import forms
+@import sign-in
 @import registrations
 @import dashboard
 
@@ -56,6 +57,8 @@ $xxlarge: 960px
   text-align: center
   color: white
   text-shadow: 0 2px 3px rgba(46, 48, 146, 0.4)
+  @include respond-to(small)
+    font-size: 4em
 
 .logo-send
   a
@@ -69,6 +72,8 @@ $xxlarge: 960px
   color: white
   margin: 0.75em auto 1.25em
   text-shadow: 0 2px 3px rgba(46, 48, 146, 0.4)
+  @include respond-to(small)
+    font-size: 1em
 
 .profile_pic
   border-radius: 50%

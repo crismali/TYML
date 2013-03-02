@@ -1,8 +1,6 @@
 <%= render "layouts/signin-header" %>
 
 <div class="note-form">
-  <h3>Sign in</h3>
-
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.email_field :email, :placeholder => "Email" %>
     <%= f.password_field :password, :placeholder => "Password" %>
@@ -12,9 +10,12 @@
     <div class="input-container">
       <%= f.submit "Sign in" %>
     </div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+      <div class="forgot-password">
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      </div>
+    <% end -%>
   <% end %>
 </div>
 
 <span style="display: none;">SendGrid</span>
-
-<%= render "devise/shared/links" %>
