@@ -8,10 +8,11 @@
       <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
       <p class="tyml-note"><%=  tyml.note %></p>
       <!-- update this to show conditionally. if tyml.viewed == true then include .tyml-viewed div -->
-      <div class="tyml-viewed">Viewed: <%=  tyml.viewed %></div>
+      <% unless tyml.viewed != true %>
+        <div class="tyml-viewed">Viewed</div>
+      <% end %>
       <!-- end conditional -->
     </div>
   </div>
   <% end %>
 </div>
-
