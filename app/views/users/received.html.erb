@@ -1,5 +1,5 @@
 <div class="container">
-  <% @current_user.received_tymls.reverse.each do |tyml| %>
+  <% @current_user.received_tymls.order('created_at desc').each do |tyml| %>
     <% @tyml = tyml %>
   <div class="tyml-container group">
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>

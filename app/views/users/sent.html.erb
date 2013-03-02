@@ -1,5 +1,5 @@
 <div class="container">
-  <% @current_user.sent_tymls.reverse.each do |tyml| %>
+  <% @current_user.sent_tymls.order('created_at desc').each do |tyml| %>
     <% @tyml = tyml %>
   <div class="tyml-container group">
     <% if tyml.receiver %>
