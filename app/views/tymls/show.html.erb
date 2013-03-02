@@ -2,12 +2,44 @@
 <h1 class="logo-send">
     <%= link_to "TYML", tymls_url %>
   <h1>
-<h2 class="tagline-send">
-  <strong>Congratulations on sending your first TYML!</strong>
-</h2>
+
+<h2 class="tagline-send"><strong>
+<% if @current_user.sent_tymls.count == 1 %>
+  Congratulations on sending your first TYML!
+<% else %>
+  Congratulations on sending another TYML!
+<% end %>
+</strong></h2>
 
 <h3>
   Don't stop now! <%= link_to 'Share more content', tymls_path %>.
 </h3>
+
+<div class="tyml-container group">
+    <% if @tyml.receiver %>
+    <div class="tyml-profile-image"><%= image_tag @tyml.receiver.profile_pic %></div>
+    <% end %>
+    <p class="tyml-user"><span class="tyml-copy">You thought</span>
+
+    <% if @tyml.receiver %>
+      <%= @tyml.receiver.name %>
+    <% else %>
+      <%= @tyml.receiver_email %>
+    <% end %>
+
+	<span class="tyml-copy">might like&hellip;</span></p>
+    <div class="tyml-content-wrap">
+      <p class="tyml-url"><%= link_to @tyml.url, tyml_url(@tyml, :viewed => 'true', :url => @tyml.url ), :method => 'put', :target => '_blank' %></p>
+      <% unless @tyml.note.blank? %>
+        <p class="tyml-note"><%= @tyml.note %></p>
+      <% end %>
+      <% @tyml.comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= image_tag comment.user.profile_pic, :width => "200" %>
+        <%= comment.comment_text %>
+      <% end %>
+      <%= render 'comment' %>
+    </div>
+  </div>
 
 </div>
