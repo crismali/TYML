@@ -49,7 +49,10 @@ class TymlsController < ApplicationController
   # POST /tymls.json
   def create
     @tyml = Tyml.new(params[:tyml])
-
+    @contact = Contact.new
+    @contact.contact_email = @tyml.receiver_email
+    @contact.user_id = @tyml.sender_id
+    @contact.save
     respond_to do |format|
       if @tyml.save
         TymlMailer.notification(@tyml).deliver

@@ -1,5 +1,6 @@
 User.destroy_all
 Tyml.destroy_all
+Contact.destroy_all
 
 users = [
   {name: 'Mike McGee', email: 'mike@starterleague.com', profile_pic: 'http://assets2.starterleague.com/assets/mike-mcgee-16075ffb857b541ef073ddb483c9bca6.jpg', bio: 'I did cool things', location: 'Chicago, IL', password: 'woohoo' },
@@ -11,6 +12,23 @@ users = [
 ]
 
 User.create users
+
+puts 'Created users'
+
+User.all.each do |user|
+
+  User.all.each do |user2|
+    c = Contact.new
+    c.user_id = user.id
+    unless user2.id == user.id
+      c.contact_email = user2.email
+      c.save
+    end
+  end
+end
+
+puts 'Created contacts'
+
 
 notes = [ "one kind of note", "different note", "yet another note", "even more notes"]
 urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/']
@@ -30,3 +48,5 @@ urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com
 
   tyml.save
 end
+
+puts 'Created 100 tymls'

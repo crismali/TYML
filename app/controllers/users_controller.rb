@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @current_user = current_user
   end
 
+  def contacts
+    @current_user = current_user
+    @users_from_contacts = @current_user.users_from_contacts
+  end
 
   def index
     @users = User.all
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @current_user = current_user
-    @autocomplete_items = User.all.map { |user| user.email }
+    @autocomplete_items = @current_user.contacts.map { |c| c.contact_email }
     @tyml = Tyml.new
   end
 
