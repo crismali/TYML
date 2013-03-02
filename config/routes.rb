@@ -1,14 +1,15 @@
 TYML::Application.routes.draw do
-  devise_for :users
 
   root :to => 'Users#dashboard'
-
-  # SIGN-OUT
-
+  
   devise_scope :user do
     delete '/sign-out', :controller => 'devise/sessions', :action => 'destroy', :as => 'destroy_user_session'
-    get '/signup', :controller => 'devise/registrations', :action => 'new'
+    get '/signup', :controller => 'devise/registrations', :action => 'new', :as => 'new_user_registration'
   end
+
+  devise_for :users
+
+  # SIGN-OUT
 
   get '/dashboard', :controller => 'Users', :action => 'dashboard', :as => 'dashboard'
 
