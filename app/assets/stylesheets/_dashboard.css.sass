@@ -3,10 +3,12 @@
   margin-bottom: 1em
   padding: 1em
   position: relative
+  line-height: 1.4
   p
     margin-top: 0.5em
     &:first-child
       margin-top: 0
+  @include respond-to(small)
 
 .tyml-profile-image
   width: 4em
@@ -19,15 +21,28 @@
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
+  @include respond-to(small)
 
 .tyml-content-wrap
-  float: left
+  padding-left: 5em
+  @include respond-to(small)
+    float: none
+    padding-left: 0
 
 .tyml-user
+  font-weight: bold
   span
-    font-weight: bold
+    display: inline-block
+    font-weight: normal
+  @include respond-to(small)
+    span
+      display: block
+      font-size: 0.75em
 
 .tyml-url
+  @include respond-to(small)
+    clear: left
+    padding-top: 0.5em
 
 .tyml-note
   font-style: oblique

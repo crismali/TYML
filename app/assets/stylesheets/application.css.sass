@@ -11,6 +11,37 @@
  *= require_self
  */
 
+// breakpoints
+$xsmall: 500px
+$small: 568px
+$medium: 680px
+$large: 768px
+$xlarge: 850px
+$xxlarge: 960px
+
+@mixin respond-to($query, $val: max-width)
+  @if $query == xsmall
+    @media screen and ($val: $xsmall)
+      @content
+  @if $query == small
+    @media screen and ($val: $small)
+      @content
+  @if $query == medium
+    @media screen and ($val: $medium)
+      @content
+  @if $query == large
+    @media screen and ($val: $large)
+      @content
+  @if $query == xlarge
+    @media screen and ($val: $xlarge)
+      @content
+  @if $query == xxlarge
+    @media screen and ($val: $xxlarge)
+      @content
+  @if $query == retina
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+      @content
+
 @import reset
 @import base
 @import header

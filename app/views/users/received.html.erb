@@ -4,7 +4,7 @@
   <div class="tyml-container group">
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
     <div class="tyml-content-wrap">
-      <p class="tyml-user"><span><%=  tyml.sender.name %></span> thought you might like&hellip;</p>
+      <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
       <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
       <p class="tyml-note"><%=  tyml.note %></p>
       <!-- update this to show conditionally. if tyml.viewed == true then include .tyml-viewed div -->
