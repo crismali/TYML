@@ -4,18 +4,20 @@
     <% if tyml.receiver %>
     <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
     <% end %>
-    <p class="tyml-user"><span class="tyml-copy">You thought</span> 
+    <p class="tyml-user"><span class="tyml-copy">You thought</span>
 
     <% if tyml.receiver %>
       <%=  tyml.receiver.name %>
     <% else %>
       <%= tyml.receiver_email %>
     <% end %>
-	
+
 	<span class="tyml-copy">might like&hellip;</span></p>
     <div class="tyml-content-wrap">
       <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
-      <p class="tyml-note"><%=  tyml.note %></p>
+      <% unless tyml.note.blank? %>
+        <p class="tyml-note"><%=  tyml.note %></p>
+      <% end %>
     </div>
   </div>
   <% end %>

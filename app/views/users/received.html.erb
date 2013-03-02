@@ -5,7 +5,11 @@
     <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
     <div class="tyml-content-wrap">
       <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
-      <p class="tyml-note"><%=  tyml.note %></p>
+
+      <% unless tyml.note.blank? %>
+        <p class="tyml-note"><%=  tyml.note %></p>
+      <% end %>
+
       <!-- update this to show conditionally. if tyml.viewed == true then include .tyml-viewed div -->
       <% unless tyml.viewed != true %>
         <div class="tyml-viewed">Viewed</div>
