@@ -1,12 +1,14 @@
 <div class="container">
   <b>Recieved TYMLs:</b>
   <% @current_user.received_tymls.each do |tyml| %>
-  <div class="tyml-container">
-    <p class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></p>
-    <p class="tyml-user"><%=  tyml.sender.name %> thought you might like&hellip;</p>
-    <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
-    <p class="tyml-note"><%=  tyml.note %></p>
-    <div class="tyml-viewed">Viewed: <%=  tyml.viewed %></div>
+  <div class="tyml-container group">
+    <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
+    <div class="tyml-content-wrap">
+      <p class="tyml-user"><span><%=  tyml.sender.name %></span> thought you might like&hellip;</p>
+      <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
+      <p class="tyml-note"><%=  tyml.note %></p>
+      <div class="tyml-viewed">Viewed: <%=  tyml.viewed %></div>
+    </div>
   </div>
   <% end %>
 </div>
