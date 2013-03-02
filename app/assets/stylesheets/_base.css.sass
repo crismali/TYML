@@ -1,10 +1,12 @@
+html,
+body
+  height: 100%
+  width: 100%
 html
   font-size: 18px
   line-height: 1.5em
   font-family: 'Open Sans', Helvetica, sans-serif
   font-weight: 300
-  width: 100%
-  height: 100%
   background: #1b75bb
 
 strong
@@ -19,10 +21,9 @@ body
   background: -ms-radial-gradient(center, ellipse cover,  #62b1e2 0%,#1b75bb 55%)
   background: radial-gradient(ellipse at center,  #62b1e2 0%,#1b75bb 55%)
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62b1e2', endColorstr='#1b75bb',GradientType=1 )
-  height: 100%
-  width: 100%
   background-repeat: no-repeat
-  padding: 0 1em
+  padding-right: 1em
+  padding-left: 1em
 
 *, :after, :before
   box-sizing: border-box
@@ -39,3 +40,10 @@ body
 .container
   max-width: 960px
   margin: 0 auto
+  zoom: 1
+  &:before,
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
