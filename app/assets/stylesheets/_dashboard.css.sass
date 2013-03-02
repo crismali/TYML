@@ -4,47 +4,49 @@
   padding: 1em
   position: relative
   line-height: 1.4
-  p
-    margin-top: 0.5em
-    &:first-child
-      margin-top: 0
-  @include respond-to(small)
-
 .tyml-profile-image
   width: 4em
   height: 4em
   float: left
-  margin-right: 1em
   img
     width: 100%
     height: auto
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
-  @include respond-to(small)
-
-.tyml-content-wrap
-  padding-left: 5em
-  @include respond-to(small)
+  @include respond-to(xsmall)
+    width: 5em
+    height: 5em
+    margin: 0 auto 0.5em auto
     float: none
-    padding-left: 0
 
 .tyml-user
   font-weight: bold
+  padding-left: 5em
   span
     display: inline-block
     font-weight: normal
-  @include respond-to(small)
+  @include respond-to(xsmall)
+    text-align: center
+    padding-left: 0
     span
       display: block
       font-size: 0.75em
 
+.tyml-content-wrap
+  padding-left: 5em
+  @include respond-to(xsmall)
+    float: none
+    padding-left: 0
+
 .tyml-url
-  @include respond-to(small)
+  padding-top: 0.4em
+  @include respond-to(xsmall)
+    text-align: center
     clear: left
-    padding-top: 0.5em
 
 .tyml-note
+  padding-top: 0.4em
   font-style: oblique
   &:after,
   &:before
