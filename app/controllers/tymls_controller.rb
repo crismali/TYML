@@ -49,20 +49,56 @@ class TymlsController < ApplicationController
   # POST /tymls.json
   def create
     @tyml = Tyml.new(params[:tyml])
-    @contact = Contact.new
-    @contact.contact_email = @tyml.receiver_email
-    @contact.user_id = @tyml.sender_id
-    @contact.save
-    respond_to do |format|
+    comma = @tyml.receiver_email.include?(',')
+    saved = false
+    if comma
+      emails = @tyml.receiver_email.split(',')
+      emails.map! {|x| x.strip}
+
+      emails.each do |email|
+        @new_tyml = Tyml.new(params[:tyml])
+        @new_tyml.receiver_email = email
+        if @new_tyml.save
+          TymlMailer.notification(@new_tyml).deliver
+          @contact = Contact.new
+          puts 'here'
+          @contact.contact_email = @new_tyml.receiver_email
+          puts 'here2'
+          @contact.user_id = @new_tyml.sender_id
+          puts 'here3'
+          @contact.save
+          puts 'here4'
+          saved = 'multi'
+          puts 'here5' + "saved = #{saved}"
+        end
+      end
+
+    else
+      @tyml.receiver_email.strip!
+
       if @tyml.save
         TymlMailer.notification(@tyml).deliver
+        @contact = Contact.new
+        @contact.contact_email = @tyml.receiver_email
+        @contact.user_id = @tyml.sender_id
+        @contact.save
+        saved = 'single'
+      end
+    end
+
+    respond_to do |format|
+      if saved == 'single'
         format.html { redirect_to @tyml, notice: 'Tyml was successfully created.' }
         format.json { render json: @tyml, status: :created, location: @tyml }
+      elsif saved == 'multi'
+        format.html { redirect_to @new_tyml, notice: 'Tymls were successfully created.' }
+        format.json { render json: @new_tyml, status: :created, location: @new_tyml }
       else
         format.html { redirect_to dashboard_url }
         format.json { render json: @tyml.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /tymls/1
