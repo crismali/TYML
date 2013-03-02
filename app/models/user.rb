@@ -14,5 +14,15 @@ class User < ActiveRecord::Base
 
   has_many :sent_tymls, class_name: 'Tyml', foreign_key: 'sender_id'
   has_many :received_tymls, class_name: 'Tyml', foreign_key: 'receiver_email', primary_key: 'email'
+  has_many :contacts
+
+  def users_from_contacts
+    @contacts = Array.new
+    contacts.each do |contact|
+      user = User.find_by_email(contact.contact_email)
+      @contacts << user unless user.nil?
+    end
+    return @contacts
+  end
 
 end
