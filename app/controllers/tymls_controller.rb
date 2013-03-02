@@ -50,6 +50,7 @@ class TymlsController < ApplicationController
   def create
     @tyml = Tyml.new(params[:tyml])
     comma = @tyml.receiver_email.include?(',')
+    space = @tyml.receiver_email.strip.include?(' ')
     saved = false
     if comma
       emails = @tyml.receiver_email.split(',')
@@ -61,18 +62,27 @@ class TymlsController < ApplicationController
         if @new_tyml.save
           TymlMailer.notification(@new_tyml).deliver
           @contact = Contact.new
-          puts 'here'
           @contact.contact_email = @new_tyml.receiver_email
-          puts 'here2'
           @contact.user_id = @new_tyml.sender_id
-          puts 'here3'
           @contact.save
-          puts 'here4'
           saved = 'multi'
-          puts 'here5' + "saved = #{saved}"
         end
       end
+    elsif space
+      emails = @tyml.receiver_email.split
 
+      emails.each do |email|
+        @new_tyml = Tyml.new(params[:tyml])
+        @new_tyml.receiver_email = email
+        if @new_tyml.save
+          TymlMailer.notification(@new_tyml).deliver
+          @contact = Contact.new
+          @contact.contact_email = @new_tyml.receiver_email
+          @contact.user_id = @new_tyml.sender_id
+          @contact.save
+          saved = 'multi'
+        end
+      end
     else
       @tyml.receiver_email.strip!
 
