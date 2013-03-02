@@ -1,7 +1,7 @@
 TYML::Application.routes.draw do
 
   root :to => 'Users#dashboard'
-  
+
   devise_scope :user do
     delete '/sign-out', :controller => 'devise/sessions', :action => 'destroy', :as => 'destroy_user_session'
     get '/signup', :controller => 'devise/registrations', :action => 'new', :as => 'new_user_registration'
@@ -26,6 +26,8 @@ TYML::Application.routes.draw do
   resources :tymls
 
   resources :users
+
+  get '/faq', :controller => 'Statics', :action => 'faq', :as => 'faq'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
