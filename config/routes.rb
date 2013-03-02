@@ -1,7 +1,7 @@
 TYML::Application.routes.draw do
   devise_for :users
 
-  root :to => 'Tymls#index'
+  root :to => 'Users#dashboard'
 
   # SIGN-OUT
 

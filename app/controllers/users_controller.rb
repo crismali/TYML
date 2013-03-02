@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy, :dashboard]
+  before_filter :authenticate_user!, :only => [:index, :show, :edit, :update, :destroy]
 
   def sent
     @current_user = current_user
@@ -29,9 +29,13 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @current_user = current_user
-    @autocomplete_items = @current_user.contacts.map { |c| c.contact_email }
-    @tyml = Tyml.new
+    if current_user.present?
+      @current_user = current_user
+      @autocomplete_items = @current_user.contacts.map { |c| c.contact_email }
+      @tyml = Tyml.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /users/1
