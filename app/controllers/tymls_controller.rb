@@ -22,6 +22,8 @@ class TymlsController < ApplicationController
   # GET /tymls/1.json
   def show
     @tyml = Tyml.find(params[:id])
+    @current_user = current_user
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb
