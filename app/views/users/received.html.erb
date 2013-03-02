@@ -1,5 +1,6 @@
 <div class="container">
   <% @current_user.received_tymls.reverse.each do |tyml| %>
+    <% @tyml = tyml %>
   <div class="tyml-container group">
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
     <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
@@ -15,6 +16,13 @@
         <div class="tyml-viewed">Viewed</div>
       <% end %>
       <!-- end conditional -->
+
+      <% tyml.comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= image_tag comment.user.profile_pic, :width => "200" %>
+        <%= comment.comment_text %>
+      <% end %>
+      <%= render 'comment' %>
     </div>
   </div>
   <% end %>

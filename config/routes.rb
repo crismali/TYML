@@ -17,6 +17,8 @@ TYML::Application.routes.draw do
 
   get '/dashboard/contacts', :controller => 'Users', :action => 'contacts', :as => 'contacts'
 
+  resources :comments, :only => :create
+
   match "users/dashboard" => redirect("/dashboard")
 
   resources :tymls

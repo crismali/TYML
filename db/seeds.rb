@@ -1,6 +1,7 @@
 User.destroy_all
 Tyml.destroy_all
 Contact.destroy_all
+Comment.destroy_all
 
 users = [
   {name: 'Mike McGee', email: 'mike@starterleague.com', profile_pic: 'http://assets2.starterleague.com/assets/mike-mcgee-16075ffb857b541ef073ddb483c9bca6.jpg', bio: 'I did cool things', location: 'Chicago, IL', password: 'woohoo' },
@@ -50,3 +51,13 @@ urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com
 end
 
 puts 'Created 100 tymls'
+
+25.times do
+  c = Comment.new
+  c.user_id = User.offset(rand(6)).first.id
+  c.tyml_id = Tyml.offset(rand(100)).first.id
+  c.comment_text = notes[rand(4)]
+  c.save
+end
+
+puts 'Created 25 comments'

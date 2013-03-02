@@ -6,10 +6,12 @@ class UsersController < ApplicationController
 
   def sent
     @current_user = current_user
+    @comment = Comment.new
   end
 
   def received
     @current_user = current_user
+    @comment = Comment.new
   end
 
   def contacts
