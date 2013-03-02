@@ -1,5 +1,5 @@
 <div class="container">
-  <% @current_user.received_tymls.each do |tyml| %>
+  <% @current_user.received_tymls.reverse.each do |tyml| %>
   <div class="tyml-container group">
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
     <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
