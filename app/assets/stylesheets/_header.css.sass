@@ -1,5 +1,6 @@
 .header
   color: white
+  margin-bottom: 1em
   .logo
     float: left
     font-family: "Exo", Helvetica, sans-serif
@@ -11,3 +12,18 @@
     text-decoration: none
     &:hover
       text-decoration: none
+  nav
+    text-align: right
+    margin: 1em auto
+    a
+      color: white
+      text-decoration: none
+      margin-left: 1em
+      &:hover
+        text-decoration: underline
+      &:first-child
+        margin-left: 0
+    @include respond-to(xsmall)
+      font-size: 0.75em
+      a
+        margin-left: 0.75em

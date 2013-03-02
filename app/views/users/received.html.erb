@@ -1,5 +1,4 @@
 <div class="container">
-  <b>Recieved TYMLs:</b>
   <% @current_user.received_tymls.each do |tyml| %>
   <div class="tyml-container group">
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
