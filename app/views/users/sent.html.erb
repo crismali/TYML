@@ -2,8 +2,18 @@
   <b>Sent TYMLs:</b>
   <% @current_user.sent_tymls.each do |tyml| %>
   <div class="tyml-container group">
+    <% if tyml.receiver %>
     <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
-    <p class="tyml-user"><span class="tyml-copy">You thought</span> <%=  tyml.receiver.name %> <span class="tyml-copy">might like&hellip;</span></p>
+    <% end %>
+    <p class="tyml-user"><span class="tyml-copy">You thought</span> 
+
+    <% if tyml.receiver %>
+      <%=  tyml.receiver.name %>
+    <% else %>
+      <%= tyml.receiver_email %>
+    <% end %>
+	
+	<span class="tyml-copy">might like&hellip;</span></p>
     <div class="tyml-content-wrap">
       <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
       <p class="tyml-note"><%=  tyml.note %></p>
