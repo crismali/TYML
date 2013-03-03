@@ -30,6 +30,6 @@
   </div>
 </header>
 
-<%= render 'users/tyml_form' %>
+<%= render 'users/tyml_form' unless @tyml.url.present? %>
 
 <% end %>
