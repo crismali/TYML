@@ -1,11 +1,15 @@
-TYML
+Hey!
 
-<%= @tyml.sender.name %> sent you a TYML!
+<%= @tyml.sender.name %> Though You Might Like...
 
-TYML is the new way to receive awesome content from people you care about. Choose how you want to be notified, and cut through the noise.
+      <%= @tyml.url %>
 
-URL: <%= @tyml.url %>
+      <%= @tyml.note %>
 
-<%= @tyml.note %>
+      <%= @tyml.sender.name %>
 
-Check out: <%= link_to "TYML", "http://tyml.it" %>
+      <%= link_to "Reply by signing up for TYML", root_url %>
+
+
+
+TYML is the best way to share content with people you care about. Sign up for free <%= link_to 'here', new_user_registration_url %>!

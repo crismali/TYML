@@ -1,11 +1,15 @@
-<h2>TYML</h2>
+<h3>Hey!</h3>
 
-<h3><%= @tyml.sender.name %> sent you a TYML!</h3>
+<h3><%= @tyml.sender.name %> Though You Might Like...</h3>
 
-<p>TYML is the new way to receive awesome content from people you care about. Choose how you want to be notified, and cut through the noise.</p>
+      <p><%= @tyml.url %></p>
 
-<p><strong>URL:</strong> <%= @tyml.url %></p>
+      <p><%= @tyml.note %></p>
 
-<p><%= @tyml.note %></p>
+      <p><%= @tyml.sender.name %></p>
 
-Check out: <%= link_to "TYML", "http://tyml.it" %>
+      <p><%= link_to "Reply by signing up for TYML", root_url %></p>
+
+
+<h3>TYML is the best way to share content with people you care about.
+  <center>Sign up for free <%= link_to 'here', new_user_registration_url %>!</center></h3>
