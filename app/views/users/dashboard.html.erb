@@ -14,6 +14,12 @@
         <p class="tyml-note"><%=  tyml.note %></p>
       <% end %>
 
+      <% if tyml.viewed %>
+        <%= link_to 'Mark as unread', :action => 'mark_as_read_or_unread', :method => 'put' %>
+      <% else %>
+        <%= link_to 'Mark as read', :action => 'mark_as_read_or_unread', :method => 'put' %>
+      <% end %>
+
       <div class="comments-container">
         <% tyml.comments.each do |comment| %>
           <div class="single-comment-wrap group">

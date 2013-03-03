@@ -129,6 +129,18 @@ class TymlsController < ApplicationController
     end
   end
 
+  def mark_as_read_or_unread
+    @tyml = Tyml.find(params[:id])
+    @current_user = current_user
+    if @tyml.viewed == false
+      @tyml.viewed = true
+    else
+      @tyml.viewed = false
+    end
+    @tyml.save
+    redirect_to dashboard_url
+  end
+
   # DELETE /tymls/1
   # DELETE /tymls/1.json
   def destroy

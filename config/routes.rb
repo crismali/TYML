@@ -21,7 +21,10 @@ TYML::Application.routes.draw do
 
   match "users/dashboard" => redirect("/dashboard")
 
+  put '/tymls/:id/mark_as_read_or_unread', :controller => 'tymls', :action => 'mark_as_read_or_unread', :as => 'mark_as_read_or_unread'
+
   resources :tymls
+
 
   resources :users
 
