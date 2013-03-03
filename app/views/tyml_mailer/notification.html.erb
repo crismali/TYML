@@ -1,15 +1,15 @@
-<h3>Hey!</h3>
+<h2>Hey!</h2>
 
-<h3><%= @tyml.sender.name %> Though You Might Like...</h3>
+<h3><%= @tyml.sender.name %> Thought You Might Like...</h3>
 
-      <p><%= @tyml.url %></p>
+      <p><%= link_to "#{@tyml.url}", @tyml.url %></p>
 
       <p><%= @tyml.note %></p>
 
-      <p><%= @tyml.sender.name %></p>
+      <p><em>- <%= @tyml.sender.name %></em></p>
 
       <p><%= link_to "Reply by signing up for TYML", root_url %></p>
 
+<p><strong>TYML is the best way to share content with people you care about.
 
-<h3>TYML is the best way to share content with people you care about.
-  <center>Sign up for free <%= link_to 'here', new_user_registration_url %>!</center></h3>
+Sign up for free <%= link_to 'here', new_user_registration_url %>!</strong></p>
