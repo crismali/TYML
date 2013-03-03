@@ -24,12 +24,11 @@
     <nav>
       <%= (link_to "TYML", dashboard_url, :class => 'logo') if user_signed_in? %>
       <%= link_to "Dashboard", dashboard_url if user_signed_in? %>
+      <a href="#share" class="share-button">Share</a>
       <%= link_to "Sent", sent_url if user_signed_in? %>
       <%= (link_to "Sign-out", destroy_user_session_path, :method => 'delete') if user_signed_in? %>
     </nav>
   </div>
 </header>
-
-<%= render 'users/tyml_form' %>
 
 <% end %>
