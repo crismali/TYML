@@ -61,8 +61,23 @@
   position: absolute
   top: 1em
   right: 1em
-  color: #3aad4b
-  font-size: 0.75em
   -webkit-border-radius: 3px
   -moz-border-radius: 3px
   border-radius: 3px
+  border: 1px solid #aaa
+  line-height: 1
+  line-height: 0.65em
+  padding: 0.2em 0.3em 0.2em 0.3em
+  span
+    font-size: 0.65em
+  a
+    color: #aaa
+    text-decoration: none
+  &[data-state="unread"]
+    border-color: red
+    a
+      color: red
+  &[data-state="read"]
+    border-color: #3aad4b
+    a
+      color: #3aad4b
