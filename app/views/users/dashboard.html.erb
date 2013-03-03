@@ -8,7 +8,7 @@
     <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
     <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
     <div class="tyml-content-wrap">
-      <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true', :url => tyml.url ), :method => 'put', :target => '_blank' %></p>
+      <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true'), :method => 'put', :target => '_blank' %></p>
 
       <% unless tyml.note.blank? %>
         <p class="tyml-note"><%=  tyml.note %></p>
