@@ -15,8 +15,6 @@ TYML::Application.routes.draw do
 
   get '/dashboard/sent', :controller => 'Users', :action => 'sent', :as => 'sent'
 
-  get '/dashboard/received', :controller => 'Users', :action => 'received', :as => 'received'
-
   get '/dashboard/contacts', :controller => 'Users', :action => 'contacts', :as => 'contacts'
 
   resources :comments, :only => :create

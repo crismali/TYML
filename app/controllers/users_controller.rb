@@ -9,11 +9,6 @@ class UsersController < ApplicationController
     @comment = Comment.new
   end
 
-  def received
-    @current_user = current_user
-    @comment = Comment.new
-  end
-
   def contacts
     @current_user = current_user
     @users_from_contacts = @current_user.users_from_contacts
@@ -29,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @comment = Comment.new
     if current_user.present?
       @current_user = current_user
       @autocomplete_items = @current_user.contacts.map { |c| c.contact_email }

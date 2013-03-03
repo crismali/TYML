@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       if @comment.tyml.sender_id == @comment.user.id
         redirect_to sent_url
       else
-        redirect_to received_url
+        redirect_to dashboard_url
       end
 
     else
@@ -16,7 +16,4 @@ class CommentsController < ApplicationController
     end
 
   end
-
-
-
 end

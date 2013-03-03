@@ -2,7 +2,7 @@
   <% @current_user.sent_tymls.order('created_at desc').each do |tyml| %>
     <% @tyml = tyml %>
   <div class="tyml-container group">
-    <% if tyml.receiver %>
+    <% unless tyml.receiver.blank? %>
     <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
     <% end %>
     <p class="tyml-user"><span class="tyml-copy">You thought</span>
