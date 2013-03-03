@@ -15,9 +15,9 @@
       <% end %>
 
       <% if tyml.viewed %>
-        <%= link_to 'Mark as unread', :action => 'mark_as_read_or_unread', :method => 'put' %>
+        <%= link_to 'Mark as unread', mark_as_read_or_unread_url(tyml), :method => 'put' %>
       <% else %>
-        <%= link_to 'Mark as read', :action => 'mark_as_read_or_unread', :method => 'put' %>
+        <%= link_to 'Mark as read', mark_as_read_or_unread_url(tyml), :method => 'put' %>
       <% end %>
 
       <div class="comments-container">
