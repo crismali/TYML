@@ -49,6 +49,7 @@ class TymlsController < ApplicationController
     comma = @tyml.receiver_email.include?(',')
     space = @tyml.receiver_email.strip.include?(' ')
     saved = false
+
     if comma
       emails = @tyml.receiver_email.split(',')
       emails.map! {|x| x.strip}
@@ -116,7 +117,10 @@ class TymlsController < ApplicationController
     @tyml.viewed = params[:viewed] #should be made more secure/tamper proof
     respond_to do |format|
       if @tyml.save
-        format.html { redirect_to params[:url] }
+        unless @tyml.url.include?('http://') || @tyml.url.include?('https://')
+          @tyml.url = 'http://' + @tyml.url
+        end
+        format.html { redirect_to @tyml.url }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -2,7 +2,7 @@
   <%= form_for @comment do |f| -%>
     <%= f.text_field :comment_text, placeholder: 'Leave a comment' %>
     <%= f.hidden_field :user_id, :value => @current_user.id %>
-    <%= f.hidden_field :tyml_id, :value => @tyml.id %>
+    <%= f.hidden_field :tyml_id, :value => @tyml_comment.id %>
     <%= f.submit "Reply" %>
   <% end -%>
 </div>
