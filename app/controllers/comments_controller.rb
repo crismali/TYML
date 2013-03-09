@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
 
     if @comment.save
+      TymlMailer.comment_notification(@comment).deliver
 
       if @comment.tyml.sender_id == @comment.user.id
         redirect_to sent_url
