@@ -66,7 +66,7 @@ TYML::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
     #Added per active admin install instructions
-  config.action_mailer.default_url_options = { :host => 'http://floating-springs-9521.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'http://tyml.heroku.com' }
 
   #These settings are for the sending out email for active admin and consequently the   devise mailer
 
