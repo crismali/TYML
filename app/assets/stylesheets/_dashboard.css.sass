@@ -1,6 +1,6 @@
 .tyml-container
   background: white
-  margin-bottom: 1em
+  margin: 1em 1em 1em 4.444444444em
   padding: 1em
   position: relative
   line-height: 1.4
@@ -9,20 +9,22 @@
   border-radius: 2px
   font-family: 'proxima-nova', Helvetica, sans-serif
   font-weight: normal
+  + .tyml-container
+    margin-top: 3em
 
 .tyml-header
-  padding-left: 3.333333333em
-  position: relative
 
 .tyml-profile-image
-  width: 2.777777778em
-  height: 2.777777778em
+  width: 3.333333333em
+  height: 3.333333333em
+  margin: 0.5em 0 0 -4.444444444em
   position: absolute
   left: 0
   top: 0
   img
     width: 100%
     height: auto
+    border: 3px solid white
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
@@ -33,8 +35,6 @@
     float: none
 .tyml-user
   font-weight: 600
-  font-size: 1.333333333em
-  line-height: 1
   span
     display: inline-block
     font-weight: 300
@@ -45,18 +45,18 @@
       display: block
       font-size: 0.75em
 .tyml-url
-  color: #a2a2a2
+  color: #3f9aff
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
+  font-size: 1.333333333em
   a
-    color: #a2a2a2
+    color: #3f9aff
   @include respond-to(xsmall)
     text-align: center
     clear: left
 
 .tyml-content-wrap
-  padding-left: 3.333333333em
   @include respond-to(xsmall)
     float: none
     padding-left: 0
@@ -71,6 +71,7 @@
 
 
 .tyml-viewed
+  display: none
   position: absolute
   top: 1em
   right: 1em
