@@ -14,7 +14,7 @@
     <header class="tyml-header">
       <div class="tyml-profile-image"><%= image_tag tyml.sender.profile_pic %></div>
       <p class="tyml-user"><%=  tyml.sender.name %> <span class="tyml-copy">thought you might like&hellip;</span></p>
-      <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true'), :method => 'put', :target => '_blank' %></p>
+      <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true'), :method => 'put', :title => tyml.url, :target => '_blank' %></p>
     </header>
 
     <div class="tyml-content-wrap">
