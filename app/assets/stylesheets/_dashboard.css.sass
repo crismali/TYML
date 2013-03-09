@@ -7,10 +7,19 @@
   -webkit-border-radius: 2px
   -moz-border-radius: 2px
   border-radius: 2px
+  font-family: 'proxima-nova', Helvetica, sans-serif
+  font-weight: normal
+
+.tyml-header
+  padding-left: 3.333333333em
+  position: relative
+
 .tyml-profile-image
-  width: 4em
-  height: 4em
-  float: left
+  width: 2.777777778em
+  height: 2.777777778em
+  position: absolute
+  left: 0
+  top: 0
   img
     width: 100%
     height: auto
@@ -22,11 +31,10 @@
     height: 5em
     margin: 0 auto 0.5em auto
     float: none
-
 .tyml-user
   font-weight: 600
-  padding-left: 5em
   font-size: 1.333333333em
+  line-height: 1
   span
     display: inline-block
     font-weight: 300
@@ -36,28 +44,25 @@
     span
       display: block
       font-size: 0.75em
-
-.tyml-content-wrap
-  padding-left: 5em
-  @include respond-to(xsmall)
-    float: none
-    padding-left: 0
-
 .tyml-url
-  padding-top: 0.4em
+  color: #a2a2a2
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
+  a
+    color: #a2a2a2
   @include respond-to(xsmall)
     text-align: center
     clear: left
 
+.tyml-content-wrap
+  padding-left: 3.333333333em
+  @include respond-to(xsmall)
+    float: none
+    padding-left: 0
+
 .tyml-note
   padding-top: 0.4em
-  font-style: oblique
-  &:after,
-  &:before
-    content: "\""
   @include respond-to(xsmall)
     text-align: center
 
