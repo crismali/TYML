@@ -18,9 +18,12 @@
     </header>
 
     <div class="tyml-content-wrap">
+      <div class="tyml-note">
       <% unless tyml.note.blank? %>
-        <p class="tyml-note"><%=  tyml.note %></p>
+        <p><%=  tyml.note %></p>
       <% end %>
+        <time datetime="<%= tyml.created_at %>"><%= tyml.created_at %></time>
+      </div>
 
       <div class="comments-container">
         <% tyml.comments.each do |comment| %>

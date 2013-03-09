@@ -31,8 +31,8 @@ end
 puts 'Created contacts'
 
 
-notes = [ "one kind of note", "different note", "yet another note", "even more notes"]
-urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/']
+notes = [ "Praesent eget libero sit amet lacus adipiscing fringilla egestas tincidunt neque.", "one kind of note", "different note", "yet another note", "even more notes", "Praesent eget libero sit amet lacus adipiscing fringilla egestas tincidunt neque. Donec ac est sed elit condimentum aliquet."]
+urls = [ 'https://www.google.com/search?q=major+lazer&aq=0&oq=major+lazer&aqs=chrome.0.0l4.2356&sourceid=chrome&ie=UTF-8', 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/']
 
 100.times do
   tyml = Tyml.new
