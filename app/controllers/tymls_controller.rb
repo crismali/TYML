@@ -115,6 +115,7 @@ class TymlsController < ApplicationController
     @tyml = Tyml.find(params[:id])
 
     @tyml.viewed = params[:viewed] #should be made more secure/tamper proof
+    @tyml.archived = params[:archived]
     respond_to do |format|
       if @tyml.save
         unless @tyml.url.include?('http://') || @tyml.url.include?('https://')
@@ -137,6 +138,19 @@ class TymlsController < ApplicationController
     else
       @tyml.viewed = false
     end
+    @tyml.save
+    redirect_to dashboard_url
+  end
+
+  def archive
+    @tyml = Tyml.find(params[:id])
+    @current_user = current_user
+    if @tyml.archived == false
+      @tyml.archived = true
+    else
+      @tyml.archived = false
+    end
+
     @tyml.save
     redirect_to dashboard_url
   end

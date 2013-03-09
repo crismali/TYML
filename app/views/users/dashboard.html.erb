@@ -19,6 +19,7 @@
 
     <div class="tyml-content-wrap">
       <div class="tyml-note">
+        <%= link_to 'Archive', archive_url(tyml), :method => 'put' %>
       <% unless tyml.note.blank? %>
         <p><%=  tyml.note %></p>
       <% end %>

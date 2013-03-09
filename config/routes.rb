@@ -27,6 +27,8 @@ TYML::Application.routes.draw do
 
   put '/tymls/:id/mark_as_read_or_unread', :controller => 'tymls', :action => 'mark_as_read_or_unread', :as => 'mark_as_read_or_unread'
 
+  put '/tymls/:id/archive', :controller => 'tymls', :action => 'archive', :as => 'archive'
+
   resources :tymls
 
   resources :users
