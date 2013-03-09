@@ -30,14 +30,14 @@ end
 
 puts 'Created contacts'
 
-
-notes = [ "Praesent eget libero sit amet lacus adipiscing fringilla egestas tincidunt neque.", "one kind of note", "different note", "yet another note", "even more notes", "Praesent eget libero sit amet lacus adipiscing fringilla egestas tincidunt neque. Donec ac est sed elit condimentum aliquet."]
-urls = [ 'https://www.google.com/search?q=major+lazer&aq=0&oq=major+lazer&aqs=chrome.0.0l4.2356&sourceid=chrome&ie=UTF-8', 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/']
+comments = [ "Thank you... I'd never heard of this wonderful service before!", "Whaaaat???", "OMG this is hilarious.", "I don't get it?", "Did you do this?", "I AM DEEPLY OFFENDED.", "You always know what I like :)", "You should have thought a little bit harder." ]
+notes = [ "This is HIGHLY relevant to your interests.", "You'll hate this.", "Get ready for awesome.", "This is super fascinating and I thought you might like it based on your interest in lucid dreaming and our interactions as friends.", "Do you love this???", "TELL ME IF YOU GOT THIS ONE OK?", "LOL.", "This is ridiculous but I love it.", "LoLL YoU ArE CCoooL!" ]
+urls = [ 'http://www.yelp.com/', 'https://www.google.com/', 'https://twitter.com/', 'http://wikipedia.org/', 'https://twitter.com/jeffcohen', 'http://mikeylikey.tumblr.com/', 'http://tyml.it', 'http://theonion.com', 'http://feralaudio.com/show/call-chelsea-peretti/' ]
 
 100.times do
   tyml = Tyml.new
-  tyml.note = notes[rand(4)]
-  tyml.url = urls[rand(6)]
+  tyml.note = notes[rand(9)]
+  tyml.url = urls[rand(8)]
   tyml.sender_id = User.offset(rand(6)).first.id
   tyml.receiver_email = User.offset(rand(6)).first.email
 
@@ -52,11 +52,11 @@ end
 
 puts 'Created 100 tymls'
 
-25.times do
+100.times do
   c = Comment.new
   c.user_id = User.offset(rand(6)).first.id
   c.tyml_id = Tyml.offset(rand(100)).first.id
-  c.comment_text = notes[rand(4)]
+  c.comment_text = comments[rand(8)]
   c.save
 end
 

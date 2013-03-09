@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @current_user = current_user
     @tyml = Tyml.new
     respond_to do |format|
       format.html # show.html.erb
@@ -60,7 +61,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @tyml = Tyml.new
+
+    if current_user.present?
+      @user = current_user
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # POST /users

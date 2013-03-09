@@ -1,7 +1,7 @@
   TYML::Application.configure do
 
   # Default URL for Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
 
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -56,7 +56,7 @@
     :domain             => 'gmail.com', #you can also use google.com
     :authentication     => :plain,
     :user_name          => 'tyml.app@gmail.com',
-    :password           => 'haztpyksgreuzbom'
+    :password           => '70C#cKTp7YK^'
   }
 
 end

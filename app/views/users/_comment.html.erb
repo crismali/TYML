@@ -1,6 +1,6 @@
 <div class="comment-form">
   <%= form_for @comment do |f| -%>
-    <%= f.text_field :comment_text, placeholder: 'Leave a comment and hit "Enter"' %>
+    <%= f.text_field :comment_text, placeholder: 'Leave a comment and press "Enter"' %>
     <%= f.hidden_field :user_id, :value => @current_user.id %>
     <%= f.hidden_field :tyml_id, :value => @tyml_comment.id %>
   <% end -%>
