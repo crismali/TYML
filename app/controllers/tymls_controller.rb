@@ -1,4 +1,4 @@
-class TymlsController < ApplicationController
+=class TymlsController < ApplicationController
   # GET /tymls
   # GET /tymls.json
 
@@ -145,6 +145,7 @@ class TymlsController < ApplicationController
   def archive
     @tyml = Tyml.find(params[:id])
     @current_user = current_user
+
     if @tyml.archived == false
       @tyml.archived = true
     else
@@ -156,10 +157,10 @@ class TymlsController < ApplicationController
         format.html { redirect_to dashboard_url }
         format.js
       end
-      else
-        redirect_to dashboard_url
-      end  
-    end
+    else
+      redirect_to dashboard_url
+    end  
+  end
 
   # DELETE /tymls/1
   # DELETE /tymls/1.json

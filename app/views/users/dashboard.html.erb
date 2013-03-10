@@ -1,11 +1,12 @@
 <div class="container">
   <% @current_user.received_tymls.order('created_at desc').each do |tyml| %>
 
-  <% unless tyml.archived == true && tyml.sender != current_user %>
+    <% unless tyml.archived == true && tyml.sender != current_user %>
 
     <% @tyml_comment = tyml %>
+
     <%= render 'tymls/tyml', :tyml => tyml %>
- 
-  <% end %>
+
+    <% end %>
   <% end %>
 </div>
