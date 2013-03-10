@@ -1,1 +1,7 @@
-Testing comment notifications.
+New comment from <%= @comment.user.name %>
+
+<%= @comment.comment_text %>
+
+Re: <%= link_to "#{@comment.tyml.url}", @comment.tyml.url %>
+
+Sign up for free <%= link_to 'here', new_user_registration_url %>!
