@@ -17,6 +17,7 @@ class TymlsController < ApplicationController
   # GET /tymls/1.json
   def show
     @tyml = Tyml.find(params[:id])
+    @tyml_comment = @tyml
     @current_user = current_user
     @comment = Comment.new
 
