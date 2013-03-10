@@ -1,5 +1,8 @@
 <div class="container">
   <% @current_user.received_tymls.order('created_at desc').each do |tyml| %>
+
+  <% unless tyml.archived == true %>
+
     <% @tyml_comment = tyml %>
   <div class="tyml-container group">
     <% if tyml.viewed %>
@@ -39,5 +42,6 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
