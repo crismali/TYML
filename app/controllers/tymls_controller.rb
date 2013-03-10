@@ -151,9 +151,15 @@ class TymlsController < ApplicationController
       @tyml.archived = false
     end
 
-    @tyml.save
-    redirect_to dashboard_url
-  end
+    if @tyml.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_url }
+        format.js
+      end
+      else
+        redirect_to dashboard_url
+      end  
+    end
 
   # DELETE /tymls/1
   # DELETE /tymls/1.json
