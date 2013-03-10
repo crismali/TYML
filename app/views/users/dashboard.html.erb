@@ -1,7 +1,7 @@
 <div class="container">
   <% @current_user.received_tymls.order('created_at desc').each do |tyml| %>
 
-  <% unless tyml.archived == true %>
+  <% unless tyml.archived == true && tyml.sender != current_user %>
 
     <% @tyml_comment = tyml %>
   <div class="tyml-container group">
@@ -22,11 +22,14 @@
 
     <div class="tyml-content-wrap">
       <div class="tyml-note">
-        <%= link_to 'Archive', archive_url(tyml), :method => 'put' %>
       <% unless tyml.note.blank? %>
         <p><%=  tyml.note %></p>
       <% end %>
-        <time datetime="<%= tyml.created_at %>"><%= "#{time_ago_in_words(tyml.created_at)} ago" %></time>
+        <time datetime="<%= tyml.created_at %>"><%= "#{time_ago_in_words(tyml.created_at)} ago" %>
+        <% unless tyml.sender == current_user %>
+         / <%= link_to 'Archive', archive_url(tyml), :method => 'put' %>
+        <% end %>
+</time>
       </div>
 
       <div class="comments-container">
