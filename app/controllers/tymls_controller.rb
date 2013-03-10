@@ -1,4 +1,4 @@
-=class TymlsController < ApplicationController
+class TymlsController < ApplicationController
   # GET /tymls
   # GET /tymls.json
 
