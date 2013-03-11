@@ -1,36 +1,8 @@
 <div class="container">
   <% @current_user.sent_tymls.order('created_at desc').each do |tyml| %>
     <% @tyml_comment = tyml %>
-  <div class="tyml-container group">
-    <% unless tyml.receiver.blank? %>
-    <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
-    <% end %>
-    <p class="tyml-user"><span class="tyml-copy">You thought</span>
 
-    <% if tyml.receiver %>
-      <%=  tyml.receiver.name %>
-    <% else %>
-      <%= tyml.receiver_email %>
-    <% end %>
+    <%= render 'tymls/tyml', :tyml => tyml %>
 
-	<span class="tyml-copy">might like&hellip;</span></p>
-    <div class="tyml-content-wrap">
-      <p class="tyml-url"><%=  link_to tyml.url, tyml.url, :target => '_blank' %></p>
-      <% unless tyml.note.blank? %>
-        <p class="tyml-note"><%=  tyml.note %></p>
-      <% end %>
-      <div class="comments-container">
-        <% tyml.comments.each do |comment| %>
-          <div class="single-comment-wrap group">
-            <div class="comment-profile-image"><%= image_tag comment.user.profile_pic %></div>
-            <p class="comment-note">
-              <span class="user-name"><%= comment.user.name %></span> &mdash; <%= comment.comment_text %>
-            </p>
-          </div>
-        <% end %>
-        <%= render 'comment' %>
-      </div>
-    </div>
-  </div>
-  <% end %>
+    <% end %>
 </div>
