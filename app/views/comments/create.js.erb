@@ -1,0 +1,2 @@
+$('#tyml_comments_<%= @tyml.id %>').append('<%= j(render 'tymls/comment', :comment => @comment) %>').slideDown(400);
+$('.comment-text').val('');

@@ -4,17 +4,13 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
 
     if @comment.save
+      @tyml = @comment.tyml
       TymlMailer.comment_notification(@comment).deliver
 
-      if @comment.tyml.sender_id == @comment.user.id
-        redirect_to sent_url
-      else
-        redirect_to dashboard_url
+      respond_to do |format|
+        format.html { redirect_to dashboard_url }
+        format.js
       end
-
-    else
-      redirect_to dashboard_url
     end
-
   end
 end
