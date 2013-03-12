@@ -22,7 +22,7 @@
         <p><%=  tyml.note %></p>
       <% end %>
       <time datetime="<%= tyml.created_at %>"><%= "#{time_ago_in_words(tyml.created_at)} ago" %>
-        <% unless tyml.sender == current_user %>
+        <% unless tyml.sender == current_user && tyml.sender.email != tyml.receiver_email %>
          / <%= link_to 'Archive', archive_url(:id => tyml.id), :method => 'put', :remote => true %>
         <% end %>
       </time>
