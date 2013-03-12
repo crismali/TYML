@@ -14,6 +14,8 @@
 <div class="tyml-container group">
   <% unless @tyml.receiver.blank? %>
   <div class="tyml-profile-image"><%= image_tag @tyml.receiver.profile_pic %></div>
+  <% else %>
+  <div class="tyml-profile-image"><%= image_tag asset_path('default_avatar.png') %></div>
   <% end %>
   <p class="tyml-user"><span class="tyml-copy">You thought</span>
 

@@ -21,7 +21,7 @@
     <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
     <span class="tyml-copy">You thought <span class="tyml-user"><%=  tyml.receiver.name %></span> might like&hellip;</span>
     <% else %>
-    <div class="tyml-profile-image"><%= image_tag 'http://dribbble.s3.amazonaws.com/users/19658/screenshots/481024/default-avatar-girl.png' %></div>
+    <div class="tyml-profile-image"><%= image_tag asset_path('default_avatar.png') %></div>
     <span class="tyml-copy">You thought <span class="tyml-user"><%= tyml.receiver_email %></span> might like&hellip;</span>
     <% end %>
     <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true'), :method => 'put', :title => tyml.url, :target => '_blank' %></p>
