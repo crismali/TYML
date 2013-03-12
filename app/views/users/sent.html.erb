@@ -2,7 +2,10 @@
   <% @current_user.sent_tymls.order('created_at desc').each do |tyml| %>
     <% @tyml_comment = tyml %>
 
-    <%= render 'tymls/tyml', :tyml => tyml %>
+    <% unless tyml.archived == true && tyml.sender.email == tyml.receiver_email %>
+
+      <%= render 'tymls/tyml', :tyml => tyml %>
 
     <% end %>
+  <% end %>
 </div>
