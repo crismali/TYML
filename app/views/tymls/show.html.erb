@@ -30,15 +30,17 @@
       <p class="tyml-note"><%=  @tyml.note %></p>
     <% end %>
     <div class="comments-container">
-      <% @tyml.comments.each do |comment| %>
-        <div class="single-comment-wrap group">
-          <div class="comment-profile-image"><%= image_tag comment.user.profile_pic %></div>
-          <p class="comment-note">
-            <span class="user-name"><%= comment.user.name %></span> &mdash; <%= comment.comment_text %>
-          </p>
-        </div>
-      <% end %>
-      <%= render 'comment' %>
+      <div id="tyml_comments_<%= @tyml.id %>">
+        <% @tyml.comments.each do |comment| %>
+          <div class="single-comment-wrap group">
+            <div class="comment-profile-image"><%= image_tag comment.user.profile_pic %></div>
+              <p class="comment-note">
+              <span class="user-name"><%= comment.user.name %></span> &mdash; <%= comment.comment_text %>
+            </p>
+          </div>
+        <% end %>
+    </div>
+      <%= render 'comment_form' %>
     </div>
   </div>
 </div>

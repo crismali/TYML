@@ -4,7 +4,54 @@
 
     <% unless tyml.archived == true && tyml.sender.email == tyml.receiver_email %>
 
-      <%= render 'tymls/tyml', :tyml => tyml %>
+      <div id="tyml_<%= tyml.id %>">
+  <div class="tyml-container group">
+    <% if tyml.viewed %>
+      <div class="tyml-viewed" data-state="unread">
+        <span><%= link_to 'Mark as unread', mark_as_read_or_unread_url(tyml), :method => 'put' %></span>
+      </div>
+    <% else %>
+      <div class="tyml-viewed" data-state="read">
+        <span><%= link_to 'Mark as read', mark_as_read_or_unread_url(tyml), :method => 'put' %></span>
+      </div>
+    <% end %>
+
+  <header class="tyml-header">
+    <% unless tyml.receiver.nil? %>
+    <div class="tyml-profile-image"><%= image_tag tyml.receiver.profile_pic %></div>
+    <span class="tyml-copy">You thought <span class="tyml-user"><%=  tyml.receiver.name %></span> might like&hellip;</span>
+    <% else %>
+    <div class="tyml-profile-image"><%= image_tag 'http://dribbble.s3.amazonaws.com/users/19658/screenshots/481024/default-avatar-girl.png' %></div>
+    <span class="tyml-copy">You thought <span class="tyml-user"><%= tyml.receiver_email %></span> might like&hellip;</span>
+    <% end %>
+    <p class="tyml-url"><%=  link_to tyml.url, tyml_url(tyml, :viewed => 'true'), :method => 'put', :title => tyml.url, :target => '_blank' %></p>
+  </header>
+
+  <div class="tyml-content-wrap">
+    <div class="tyml-note">
+      <% unless tyml.note.blank? %>
+        <p><%=  tyml.note %></p>
+      <% end %>
+      <time datetime="<%= tyml.created_at %>"><%= "#{time_ago_in_words(tyml.created_at)} ago" %>
+        <% unless tyml.sender == current_user && tyml.sender.email != tyml.receiver_email %>
+         / <%= link_to 'Archive', archive_url(:id => tyml.id), :method => 'put', :remote => true %>
+        <% end %>
+      </time>
+    </div>
+
+    <div class="comments-container">
+      <div id="tyml_comments_<%= tyml.id %>">
+  <% tyml.comments.each do |comment| %>
+
+    <%= render 'tymls/comment', :comment => comment %>
+
+          <% end %>
+        </div>
+        <%= render 'comment_form' %>
+      </div>
+    </div>
+  </div>
+</div>
 
     <% end %>
   <% end %>
